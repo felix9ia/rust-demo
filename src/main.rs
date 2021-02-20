@@ -93,9 +93,63 @@ fn base() {
     // let byte = b"";
 }
 
+fn type_float() {
+    // 64bit float
+    let float64 = 2.9;
+    // same as
+    // let float64: f64 = 2.0;
+    println!("float64 is: {}", float64);
+
+    let float32: f32 = 3.2;
+    println!("float32 is: {}", float32);
+}
+
+fn math() {
+    let sum = 5 + 10;
+    // unsupported ++ or --
+    // let sum = 5 ++;
+    let difference = 95.6 - 4.3;
+    let product = 4 * 30;
+    let quotient = 56.7 / 32.2;
+    let remainder = 43 % 5;
+
+    println!("result is: {0}, {1}, {2}, {3}, {4}", sum, difference, product, quotient,
+             remainder);
+}
+
+fn type_other() {
+    // boolean
+    let boolean: bool = true;
+    println!("result is: {0}", boolean);
+
+    // char
+    let char1 = 'z';
+    let char2: char = 'ℤ';
+    let heart_eyed_cat: char = '😻';
+    println!("result is: {0}, {1}, {2}", char1, char2, heart_eyed_cat);
+
+    // tuple
+    let tup = (500, 6.4, 1, "str");
+    println!("result is: {}", tup.3);
+    // error:  expected a tuple with 4 elements, found one with 2 elements
+    // let (x, y) = tup;
+    let (x, y, z, w) = tup;
+    println!("x is: {}, y is: {}, z is: {}, w is : {} ", x, y, z, w);
+
+    // array
+    let array: [&str; 3] = ["Jan", "Feb", "March"];
+    println!("array 0 : {}", array[0]);
+
+    let int_array: [i32; 2] = [432, 356];
+    println!("index 1 value: {}", int_array[1])
+}
+
 fn main() {
     print();
     variable();
     type_integer();
-    base()
+    type_float();
+    type_other();
+    base();
+    math();
 }
