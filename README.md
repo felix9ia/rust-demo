@@ -2,7 +2,11 @@
 
 # Rust Demo
 
-Study rust project, for my dream, reference [cargo-tutorial](https://www.runoob.com/rust/cargo-tutorial.html).
+Study rust project, for my dream, reference by:
+
+- [rust-tutorial](https://www.runoob.com/rust/cargo-tutorial.html)
+
+- [doc.rust-lang.org](https://doc.rust-lang.org/book/title-page.html)
 
 ## Definitioins
 

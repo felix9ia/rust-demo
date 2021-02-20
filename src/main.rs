@@ -37,13 +37,65 @@ fn variable() {
     // Shadowing
     // new d is a Shadow of old d.
 
-    let mut s = "123";
+    let s = "123";
+    // let mut s = "123";
     println!("s is {}", s);
     // expected `&str`, found `usize`
     // s = s.len();
 }
 
+fn type_integer() {
+    // 8 bit signed int
+    let int8: i8 = -8;
+    println!("int8 is: {}", int8);
+
+    // unsigned int, unsigned values cannot be negated
+    // let un_int8: u8 = -8;
+    let un_int8: u8 = 8;
+    println!("un_int8 is: {}", un_int8);
+
+    let int16: i16 = -16;
+    println!("int16 is: {}", int16);
+
+    let un_int16: u16 = 16;
+    println!("un_int16 is: {}", un_int16);
+
+    // TODO i32
+    // TODO u32
+
+    // TODO i64
+    // TODO u64
+
+    // TODO i128
+    // TODO u128
+
+    //  signed int of arch platform , 32bit or 64bit
+    let int_size: isize = -16;
+    println!("int_size is: {}", int_size);
+}
+
+fn base() {
+
+    // 98,150
+    let decimal = 98_150;
+    println!("decimal is: {}", decimal);
+
+    let hex = 0xf;
+    println!("hex is: {}", hex);
+
+    let octal = 0o17;
+    println!("octal is: {}", octal);
+
+    let binary = 0b1111;
+    println!("binary is: {}", binary);
+
+    // TODO ??
+    // let byte = b"";
+}
+
 fn main() {
     print();
-    variable()
+    variable();
+    type_integer();
+    base()
 }
