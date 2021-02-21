@@ -83,6 +83,8 @@ fn type_integer() {
     //  signed int of arch platform , 32bit or 64bit
     let int_size: isize = -16;
     println!("int_size is: {}", int_size);
+
+    // TODO usize
 }
 
 fn type_float() {
@@ -212,6 +214,42 @@ fn condition() {
     println!("res4 is: {}", res4);
 }
 
+fn loop_case() {
+    // error: no for(i = 0; i < 10; i++)
+    let mut number = 1;
+    while number <= 4 {
+        println!("number is: {}", number);
+        number += 1;
+    }
+    println!("NEXT CASE");
+
+    let arr1 = [10, 20, 30, 40];
+
+    for i in arr1.iter() {
+        println!("arr1 element by iter is: {}", i);
+    }
+    for i in 0..arr1.len() {
+        println!("index arr1[{}] is: {}", i, arr1[i]);
+    }
+
+    let s = ['R', 'U', 'N', '0', 'B'];
+    let mut i = 0;
+
+    // while true
+    // for i in 0.. {
+    //     println!("while true");
+    // }
+    let location = loop {
+        let ch = s[i];
+        if ch == '0' {
+            break i;
+        }
+        println!("char is: \'{}\'", ch);
+        i += 1;
+    };
+    println!("\'0\' location index at: {}", location)
+}
+
 fn main() {
     print();
     variable();
@@ -220,5 +258,6 @@ fn main() {
     type_other();
     base();
     math();
-    condition()
+    condition();
+    loop_case()
 }
