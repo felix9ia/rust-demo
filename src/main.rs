@@ -1,3 +1,14 @@
+/// Study log, for memory
+///
+/// # Examples
+/// markdown rule, must be ///, very interesting
+/// ```
+/// type_float();
+/// math();
+///
+/// ```
+///
+
 fn print() {
     println!("Hello, world, i want fix more bug!");
 
@@ -74,25 +85,6 @@ fn type_integer() {
     println!("int_size is: {}", int_size);
 }
 
-fn base() {
-
-    // 98,150
-    let decimal = 98_150;
-    println!("decimal is: {}", decimal);
-
-    let hex = 0xf;
-    println!("hex is: {}", hex);
-
-    let octal = 0o17;
-    println!("octal is: {}", octal);
-
-    let binary = 0b1111;
-    println!("binary is: {}", binary);
-
-    // TODO ??
-    // let byte = b"";
-}
-
 fn type_float() {
     // 64bit float
     let float64 = 2.9;
@@ -102,19 +94,6 @@ fn type_float() {
 
     let float32: f32 = 3.2;
     println!("float32 is: {}", float32);
-}
-
-fn math() {
-    let sum = 5 + 10;
-    // unsupported ++ or --
-    // let sum = 5 ++;
-    let difference = 95.6 - 4.3;
-    let product = 4 * 30;
-    let quotient = 56.7 / 32.2;
-    let remainder = 43 % 5;
-
-    println!("result is: {0}, {1}, {2}, {3}, {4}", sum, difference, product, quotient,
-             remainder);
 }
 
 fn type_other() {
@@ -139,9 +118,98 @@ fn type_other() {
     // array
     let array: [&str; 3] = ["Jan", "Feb", "March"];
     println!("array 0 : {}", array[0]);
-
+    // var: [type, size] = [v0, v1];
     let int_array: [i32; 2] = [432, 356];
-    println!("index 1 value: {}", int_array[1])
+    println!("index 1 value: {}", int_array[1]);
+    // reassign
+    let [i1, i2] = int_array;
+    println!("i1 value: {}, i2 value: {}", i1, i2);
+}
+
+
+fn base() {
+
+    // 98,150
+    let decimal = 98_150;
+    println!("decimal is: {}", decimal);
+
+    let hex = 0xf;
+    println!("hex is: {}", hex);
+
+    let octal = 0o17;
+    println!("octal is: {}", octal);
+
+    let binary = 0b1111;
+    println!("binary is: {}", binary);
+
+    // TODO ??
+    // let byte = b"";
+}
+
+/// add two unsigned integer variable
+/// # Example
+/// ```
+/// let sum = (5, 10);
+/// ```
+
+// error: Function `add` cannot have anonymous parameters
+// fn add(v1, v2) -> u32 {
+fn add(v1: u32, v2: u32) -> u32 {
+    // block can tip strong association logic
+    let result = {
+        v1 + v2
+    };
+    return result;
+}
+
+fn math() {
+    let sum = add(5, 10);
+    // unsupported ++ or --
+    // let sum = 5 ++;
+    let difference = 95.6 - 4.3;
+
+
+    /// multiply 2 integer variable
+    /// # Example
+    /// ```
+    ///
+    /// ```
+    fn multi(v1: i32, v2: i32) -> i32 {
+        v1 + v2
+    }
+    let product = multi(4, 30);
+    let quotient = 56.7 / 32.2;
+    let remainder = 43 % 5;
+
+    println!("result is: {0}, {1}, {2}, {3}, {4}", sum, difference, product, quotient,
+             remainder);
+}
+
+
+fn condition() {
+    fn how_old(age: u8) -> &'static str {
+        let result;
+
+        if age < 18 {
+            result = "children";
+        } else if age >= 18 && age < 30 {
+            result = "teenager";
+        } else {
+            // same as: a ? b : c
+            result = if age >= 100 { "not a person" } else { "master" };
+        }
+
+        return result;
+    }
+
+    let res1 = how_old(6);
+    println!("res1 is: {}", res1);
+    let res2 = how_old(18);
+    println!("res2 is: {}", res2);
+    let res3 = how_old(31);
+    println!("res3 is: {}", res3);
+    let res4 = how_old(100);
+    println!("res4 is: {}", res4);
 }
 
 fn main() {
@@ -152,4 +220,5 @@ fn main() {
     type_other();
     base();
     math();
+    condition()
 }
